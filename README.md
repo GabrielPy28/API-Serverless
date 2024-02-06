@@ -5,8 +5,8 @@
 
 ## First Steps
 1. Create a New IAM Role with the following polices:
-  - CloudWacthFullAcces (to access AWS CloudWatch)
-  - AmazonDynamoDBFullAccess (to manage DynamoDB tables and items).
+   - CloudWacthFullAcces (to access AWS CloudWatch)
+   - AmazonDynamoDBFullAccess (to manage DynamoDB tables and items).
 
 2. Create a New Lambda Function with the following configuration:
    - Author from scratch
