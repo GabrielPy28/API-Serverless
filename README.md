@@ -5,22 +5,21 @@
 
 ## First Steps
 1. Create a New IAM Role with the following polices:
- - CloudWacthFullAcces (to access AWS CloudWatch)
- - AmazonDynamoDBFullAccess (to manage DynamoDB tables and items).
+  - CloudWacthFullAcces (to access AWS CloudWatch)
+  - AmazonDynamoDBFullAccess (to manage DynamoDB tables and items).
 
 2. Create a New Lambda Function with the following configuration:
+   - Author from scratch
+   - Runtime: Python
+   - Execution Role with the new IAM Role was created in step one.
+   - Memory 500MB
+   - Timeout 1 Min.
+     
+4. Create a New Data Base in Amazon DynamoDB with `Partition Key: productID`
 
- • Author from scratch
- • Runtime: Python 
- • Execution Role with the new IAM Role was created in step one.
- • Memory 500MB
- • Timeout 1 Min.
-
-3. Create a New Data Base in Amazon DynamoDB with `Partition Key: productID`
-
-4. Create a New REST API using Amazon API Gateway with the following configurations:
- • Endpoint Type: Regional
- • Resources (all with enabled API Gateway CORS and Integrated with Lambda Function was created in step two) with the following methods:
+5. Create a New REST API using Amazon API Gateway with the following configurations:
+   - Endpoint Type: Regional
+   - Resources (all with enabled API Gateway CORS and Integrated with Lambda Function was created in step two) with the following methods:
    ```
    /health
      GET 
@@ -36,9 +35,9 @@
      OPTIONS
    ```
 
-5. Replace the code in  your lambda function with the content of [lambda_function.py](./lambda_function.py) file.
+7. Replace the code in  your lambda function with the content of [lambda_function.py](./lambda_function.py) file.
 
-6. Create a new file named custom_encoder.py in your lambda function folder, copy & paste the code provided below into [custom_encoder.py](./custom_encoder.py) file
+8. Create a new file named custom_encoder.py in your lambda function folder, copy & paste the code provided below into [custom_encoder.py](./custom_encoder.py) file
 
 > [!NOTE]
 > If everything is working correctly, when accessing the API invocation URL, for example: https://mtp9f7cdta3.execute-api.us-east-1.amazonaws.com/your_stage_name/health returned with Status Code 200
